@@ -61,7 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrailleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BrailleDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BrailleLine.cs" />
+    <Compile Include="BrailleService.cs" />
     <Compile Include="BrailleTable.cs" />
     <Compile Include="BrailleToken.cs" />
     <Compile Include="MainForm.cs">
@@ -72,6 +78,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenCircle.cs" />
     <Compile Include="Translator.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -85,6 +92,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="BrailleDataSet.xsc">
+      <DependentUpon>BrailleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BrailleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BrailleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BrailleDataSet.xss">
+      <DependentUpon>BrailleDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

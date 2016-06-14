@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,38 +21,52 @@ namespace Braille3D
 
         private void buttonSelectAll_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection())
+           
+        }
+
+        private void buttonSelectInputFile_Click(object sender, EventArgs e)
+        {
+            openFileDialogInput.Filter = "Текстовый файл (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialogInput.InitialDirectory = @"C:\";
+            openFileDialogInput.Title = "Выберите файл для печати";
+            if (openFileDialogInput.ShowDialog() == DialogResult.OK)
             {
-                connection.ConnectionString = Braille3D.Properties.Settings.Default.BrailleConnectionString;
-                string queryString = "SELECT * FROM Glyphs";
-                SqlCommand command = new SqlCommand(queryString, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                try
+                string inputFile = openFileDialogInput.FileName;
+                label2.Text = inputFile;
+                string inputText = "";
+                using (StreamReader sr = new StreamReader(inputFile, Encoding.Default))
                 {
-                    string text = "";
-                    while(reader.Read())
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
                     {
-                        text += reader.GetString(1);
+                        inputText += line;
+                        inputText += "\r\n";
                     }
-                    richTextBox1.Text = text;
                 }
-                catch (SqlException)
-                {
-                    
-                }
-                finally
-                {
-                    reader.Close();
-                }
-                //connection.Open();
-
-                Console.WriteLine("State: {0}", connection.State);
-                Console.WriteLine("ConnectionString: {0}",
-                    connection.ConnectionString);
+                richTextBoxInputText.Text = inputText;
             }
-            //richTextBox1.Text = Braille3D.Properties.Settings.Default.BrailleConnectionString;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'brailleDataSet.GlyphTypes' table. You can move, or remove it, as needed.
+            this.glyphTypesTableAdapter.Fill(this.brailleDataSet.GlyphTypes);
+
+        }
+
+        private void comboBoxGlyphType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
+        }
+
+        private void comboBoxGlyphType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
+
+            DataRowView row = (DataRowView)comboBoxGlyphType.SelectedItem;
+            richTextBoxInputText.Text = row.Row.ToString();
+
+            //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
         }
     }
 }

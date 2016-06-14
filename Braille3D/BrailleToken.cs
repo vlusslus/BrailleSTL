@@ -8,5 +8,9 @@ namespace Braille3D
 {
     class BrailleToken
     {
+        private int Id;
+        private String Title;
+
+
     }
 }

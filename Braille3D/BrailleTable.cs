@@ -8,5 +8,23 @@ namespace Braille3D
 {
     class BrailleTable
     {
+
+        private List<BrailleLine> brailleLines;
+
+        public BrailleTable()
+        {
+            this.brailleLines = new List<BrailleLine>();
+        }
+
+        public void Add(BrailleLine brailleLine)
+        {
+            this.brailleLines.Add(brailleLine);
+        }
+
+        public List<BrailleLine> GetBrailleLines()
+        {
+            return brailleLines;
+        }
+
     }
 }
