@@ -11,9 +11,10 @@ namespace Braille3D
         private int xPos;
         private int yPos;
 
-        public TokenCircle()
+        public TokenCircle(char xPos, char yPos)
         {
-
+            this.xPos = System.Convert.ToInt32(xPos);
+            this.yPos = System.Convert.ToInt32(yPos);
         }
     }
 }
