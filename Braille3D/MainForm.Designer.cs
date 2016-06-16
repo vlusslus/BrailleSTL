@@ -48,6 +48,7 @@
             this.brailleDataSet = new Braille3D.BrailleDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.glyphTypesTableAdapter = new Braille3D.BrailleDataSetTableAdapters.GlyphTypesTableAdapter();
+            this.buttonBuildSvg = new System.Windows.Forms.Button();
             this.groupBoxGlyphs.SuspendLayout();
             this.groupBoxInput.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -186,6 +187,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonBuildSvg);
             this.groupBox1.Controls.Add(this.comboBoxGlyphType);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(18, 263);
@@ -230,6 +232,16 @@
             // glyphTypesTableAdapter
             // 
             this.glyphTypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonBuildSvg
+            // 
+            this.buttonBuildSvg.Location = new System.Drawing.Point(8, 60);
+            this.buttonBuildSvg.Name = "buttonBuildSvg";
+            this.buttonBuildSvg.Size = new System.Drawing.Size(277, 35);
+            this.buttonBuildSvg.TabIndex = 2;
+            this.buttonBuildSvg.Text = "Сформировать SVG";
+            this.buttonBuildSvg.UseVisualStyleBackColor = true;
+            this.buttonBuildSvg.Click += new System.EventHandler(this.buttonBuildSvg_Click);
             // 
             // MainForm
             // 
@@ -276,6 +288,7 @@
         private BrailleDataSet brailleDataSet;
         private System.Windows.Forms.BindingSource glyphTypesBindingSource;
         private BrailleDataSetTableAdapters.GlyphTypesTableAdapter glyphTypesTableAdapter;
+        private System.Windows.Forms.Button buttonBuildSvg;
     }
 }
 

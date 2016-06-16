@@ -68,5 +68,11 @@ namespace Braille3D
 
             //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
         }
+
+        private void buttonBuildSvg_Click(object sender, EventArgs e)
+        {
+            string inputText = richTextBoxInputText.Text;
+            
+        }
     }
 }
