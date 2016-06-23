@@ -77,12 +77,16 @@ namespace Braille3D
 
                 try
                 {
-                    configs.Add("Circle_Radio", reader.GetDouble(0));
-                    configs.Add("Circle_Ratio", reader.GetDouble(1));
-                    configs.Add("Width", reader.GetDouble(2));
-                    configs.Add("Heigth", reader.GetDouble(3));
-                    configs.Add("Lines", reader.GetDouble(4));
-                    configs.Add("Tokens", reader.GetDouble(5));
+                    while(reader.Read())
+                    {
+                        //Decimal dec =  reader.GetDecimal(0);
+                        configs.Add("Circle_Radio", Convert.ToDouble(reader.GetDecimal(0)));
+                        configs.Add("Circle_Ratio", Convert.ToDouble(reader.GetDecimal(1)));
+                        configs.Add("Width", Convert.ToDouble(reader.GetDecimal(2)));
+                        configs.Add("Heigth", Convert.ToDouble(reader.GetDecimal(3)));
+                        configs.Add("Lines", reader.GetInt32(4));
+                        configs.Add("Tokens", reader.GetInt32(5));
+                    }
                     return configs;
                 }
                 catch (SqlException e)
@@ -98,6 +102,7 @@ namespace Braille3D
 
         }
 
+       
 
 
     }

@@ -16,5 +16,16 @@ namespace Braille3D
             this.xPos = System.Convert.ToInt32(xPos);
             this.yPos = System.Convert.ToInt32(yPos);
         }
+
+        public int getXPosition()
+        {
+            return this.xPos;
+        }
+
+        public int getYPosition()
+        {
+            return this.yPos;
+        }
+
     }
 }

@@ -72,6 +72,8 @@ namespace Braille3D
         private void buttonBuildSvg_Click(object sender, EventArgs e)
         {
             string inputText = richTextBoxInputText.Text;
+            Translator translator = new Translator(inputText, 1);
+            translator.buildSvg();
             
         }
     }

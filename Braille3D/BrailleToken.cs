@@ -33,6 +33,11 @@ namespace Braille3D
 
         }
 
+        public List<TokenCircle> GetCirclesPositions()
+        {
+            return this.tokenCircles;
+        }
+
 
     }
 }

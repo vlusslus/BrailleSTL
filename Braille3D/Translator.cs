@@ -8,6 +8,7 @@ namespace Braille3D
 {
     class Translator
     {
+        private string svg;
 
         private string inputText;
         private int brailleSchema;
@@ -19,11 +20,12 @@ namespace Braille3D
         private int lines;
         private int tokens;
 
-        public Translator(string inputText)
+        public Translator(string inputText, int brailleSchema)
         {
             this.inputText = inputText;
+            this.brailleSchema = brailleSchema;
 
-            Dictionary<string, double> configs = BrailleService.getConfigsById(1);
+            Dictionary<string, double> configs = BrailleService.getConfigsById(3);
             this.circleRadio = configs["Circle_Radio"];
             this.circleRatio = configs["Circle_Ratio"];
             this.width = configs["Width"];
@@ -68,14 +70,14 @@ namespace Braille3D
                     this.svg += "<rect " +
                             "x=\"" + (int)getRX(tokenIndex) + "\" " +
                             "y=\"" + (int)getRY(lineIndex) + "\" " +
-                            "width=\"" + (int)(this.widthRatio + 1 * this.circleRadio + this.circlesRatio) + "\" " +
-                            "height=\"" + (int)(this.heigthRatio + 2 * this.circleRadio + 2 * this.circlesRatio) + "\" " +
+                            "width=\"" + (int)(this.width + 1 * this.circleRadio + this.circleRatio) + "\" " +
+                            "height=\"" + (int)(this.heigth + 2 * this.circleRadio + 2 * this.circleRatio) + "\" " +
                             "style=\"fill:none;stroke:black;stroke-width:5\" />";
-                    for (int circleIndex = 0; circleIndex < token.getCirclesPositions().size(); circleIndex++)
+                    for (int circleIndex = 0; circleIndex < token.GetCirclesPositions().Count; circleIndex++)
                     {
                         this.svg += "<circle " +
-                                "cx=\"" + (int)getCX(tokenIndex, token.getCirclesPositions().get(circleIndex).getXPosition()) + "\" " +
-                                "cy=\"" + (int)getCY(lineIndex, token.getCirclesPositions().get(circleIndex).getYPosition()) + "\" " +
+                                "cx=\"" + (int)getCX(tokenIndex, token.GetCirclesPositions()[circleIndex].getXPosition()) + "\" " +
+                                "cy=\"" + (int)getCY(lineIndex, token.GetCirclesPositions()[circleIndex].getYPosition()) + "\" " +
                                 "r=\"" + (int)circleRadio + "\" " +
                                 "stroke=\"black\" " +
                                 "stroke-width=\"1\" " +
@@ -87,11 +89,11 @@ namespace Braille3D
                                 "height=\"" + (int)(this.heigthRatio + 2 * this.circleRadio + 2 * this.circlesRatio) + "\" " +
                                 "style=\"fill:none;stroke:black;stroke-width:5\" />";*/
                     }
-                    currentHorizontalPos += widthRatio;
+                    currentHorizontalPos += width;
                     tokenIndex++;
                 }
                 lineIndex++;
-                currentVerticalPos += heigthRatio;
+                currentVerticalPos += heigth;
             }
 
         }

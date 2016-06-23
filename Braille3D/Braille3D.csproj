@@ -120,6 +120,7 @@
     <Content Include="Data\Braille.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\Braille_Init.sql" />
     <Content Include="Data\Braille_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Braille.mdf</DependentUpon>
