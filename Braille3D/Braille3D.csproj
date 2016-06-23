@@ -67,6 +67,12 @@
       <DependentUpon>BrailleDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="BrailleLine.cs" />
+    <Compile Include="BrailleSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrailleSchema.Designer.cs">
+      <DependentUpon>BrailleSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="BrailleService.cs" />
     <Compile Include="BrailleTable.cs" />
     <Compile Include="BrailleToken.cs" />
@@ -80,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TokenCircle.cs" />
     <Compile Include="Translator.cs" />
+    <EmbeddedResource Include="BrailleSchema.resx">
+      <DependentUpon>BrailleSchema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

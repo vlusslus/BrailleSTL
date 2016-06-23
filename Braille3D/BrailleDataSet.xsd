@@ -54,6 +54,25 @@ SELECT Id, Type FROM GlyphTypes WHERE (Id = @Id)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GlyphsParamsTableAdapter" GeneratorDataComponentClassName="GlyphsParamsTableAdapter" Name="GlyphsParams" UserDataComponentName="GlyphsParamsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BrailleConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT g.Title, gp.Value
+FROM   Glyphs AS g INNER JOIN
+             GlyphParams AS gp ON g.Id_glyph_param = gp.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Title" DataSetColumn="Title" />
+              <Mapping SourceColumn="Value" DataSetColumn="Value" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -62,7 +81,7 @@ SELECT Id, Type FROM GlyphTypes WHERE (Id = @Id)</CommandText>
   <xs:element name="BrailleDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BrailleDataSet" msprop:Generator_UserDSName="BrailleDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GlyphTypes" msprop:Generator_TableClassName="GlyphTypesDataTable" msprop:Generator_TableVarName="tableGlyphTypes" msprop:Generator_TablePropName="GlyphTypes" msprop:Generator_RowDeletingName="GlyphTypesRowDeleting" msprop:Generator_RowChangingName="GlyphTypesRowChanging" msprop:Generator_RowEvHandlerName="GlyphTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="GlyphTypesRowDeleted" msprop:Generator_UserTableName="GlyphTypes" msprop:Generator_RowChangedName="GlyphTypesRowChanged" msprop:Generator_RowEvArgName="GlyphTypesRowChangeEvent" msprop:Generator_RowClassName="GlyphTypesRow">
+        <xs:element name="GlyphTypes" msprop:Generator_TableClassName="GlyphTypesDataTable" msprop:Generator_TableVarName="tableGlyphTypes" msprop:Generator_RowChangedName="GlyphTypesRowChanged" msprop:Generator_TablePropName="GlyphTypes" msprop:Generator_RowDeletingName="GlyphTypesRowDeleting" msprop:Generator_RowChangingName="GlyphTypesRowChanging" msprop:Generator_RowEvHandlerName="GlyphTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="GlyphTypesRowDeleted" msprop:Generator_RowClassName="GlyphTypesRow" msprop:Generator_UserTableName="GlyphTypes" msprop:Generator_RowEvArgName="GlyphTypesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -70,6 +89,26 @@ SELECT Id, Type FROM GlyphTypes WHERE (Id = @Id)</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GlyphsParams" msprop:Generator_TableClassName="GlyphsParamsDataTable" msprop:Generator_TableVarName="tableGlyphsParams" msprop:Generator_TablePropName="GlyphsParams" msprop:Generator_RowDeletingName="GlyphsParamsRowDeleting" msprop:Generator_RowChangingName="GlyphsParamsRowChanging" msprop:Generator_RowEvHandlerName="GlyphsParamsRowChangeEventHandler" msprop:Generator_RowDeletedName="GlyphsParamsRowDeleted" msprop:Generator_UserTableName="GlyphsParams" msprop:Generator_RowChangedName="GlyphsParamsRowChanged" msprop:Generator_RowEvArgName="GlyphsParamsRowChangeEvent" msprop:Generator_RowClassName="GlyphsParamsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Value" msprop:Generator_ColumnVarNameInTable="columnValue" msprop:Generator_ColumnPropNameInRow="Value" msprop:Generator_ColumnPropNameInTable="ValueColumn" msprop:Generator_UserColumnName="Value">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

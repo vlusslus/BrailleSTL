@@ -63,8 +63,8 @@ namespace Braille3D
         {
             //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
 
-            DataRowView row = (DataRowView)comboBoxGlyphType.SelectedItem;
-            richTextBoxInputText.Text = row.Row.ToString();
+            //DataRowView row = (DataRowView)comboBoxGlyphType.SelectedItem;
+            //richTextBoxInputText.Text = row.Row.ToString();
 
             //richTextBoxInputText.Text = comboBoxGlyphType.SelectedValue.ToString();
         }
@@ -75,6 +75,12 @@ namespace Braille3D
             Translator translator = new Translator(inputText, 1);
             translator.buildSvg();
             
+        }
+
+        private void buttonViewBrailleSchema_Click(object sender, EventArgs e)
+        {
+            BrailleSchema brailleSchema = new BrailleSchema();
+            brailleSchema.Visible = true;
         }
     }
 }

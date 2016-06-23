@@ -43,12 +43,13 @@
             this.richTextBoxInputText = new System.Windows.Forms.RichTextBox();
             this.openFileDialogInput = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonBuildSvg = new System.Windows.Forms.Button();
             this.comboBoxGlyphType = new System.Windows.Forms.ComboBox();
             this.glyphTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.brailleDataSet = new Braille3D.BrailleDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.glyphTypesTableAdapter = new Braille3D.BrailleDataSetTableAdapters.GlyphTypesTableAdapter();
-            this.buttonBuildSvg = new System.Windows.Forms.Button();
+            this.buttonViewBrailleSchema = new System.Windows.Forms.Button();
             this.groupBoxGlyphs.SuspendLayout();
             this.groupBoxInput.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -187,6 +188,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonViewBrailleSchema);
             this.groupBox1.Controls.Add(this.buttonBuildSvg);
             this.groupBox1.Controls.Add(this.comboBoxGlyphType);
             this.groupBox1.Controls.Add(this.label3);
@@ -196,6 +198,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Транслятор";
+            // 
+            // buttonBuildSvg
+            // 
+            this.buttonBuildSvg.Location = new System.Drawing.Point(6, 105);
+            this.buttonBuildSvg.Name = "buttonBuildSvg";
+            this.buttonBuildSvg.Size = new System.Drawing.Size(277, 35);
+            this.buttonBuildSvg.TabIndex = 2;
+            this.buttonBuildSvg.Text = "Сформировать SVG";
+            this.buttonBuildSvg.UseVisualStyleBackColor = true;
+            this.buttonBuildSvg.Click += new System.EventHandler(this.buttonBuildSvg_Click);
             // 
             // comboBoxGlyphType
             // 
@@ -233,15 +245,15 @@
             // 
             this.glyphTypesTableAdapter.ClearBeforeFill = true;
             // 
-            // buttonBuildSvg
+            // buttonViewBrailleSchema
             // 
-            this.buttonBuildSvg.Location = new System.Drawing.Point(8, 60);
-            this.buttonBuildSvg.Name = "buttonBuildSvg";
-            this.buttonBuildSvg.Size = new System.Drawing.Size(277, 35);
-            this.buttonBuildSvg.TabIndex = 2;
-            this.buttonBuildSvg.Text = "Сформировать SVG";
-            this.buttonBuildSvg.UseVisualStyleBackColor = true;
-            this.buttonBuildSvg.Click += new System.EventHandler(this.buttonBuildSvg_Click);
+            this.buttonViewBrailleSchema.Location = new System.Drawing.Point(6, 60);
+            this.buttonViewBrailleSchema.Name = "buttonViewBrailleSchema";
+            this.buttonViewBrailleSchema.Size = new System.Drawing.Size(277, 39);
+            this.buttonViewBrailleSchema.TabIndex = 3;
+            this.buttonViewBrailleSchema.Text = "Редактировать схему";
+            this.buttonViewBrailleSchema.UseVisualStyleBackColor = true;
+            this.buttonViewBrailleSchema.Click += new System.EventHandler(this.buttonViewBrailleSchema_Click);
             // 
             // MainForm
             // 
@@ -289,6 +301,7 @@
         private System.Windows.Forms.BindingSource glyphTypesBindingSource;
         private BrailleDataSetTableAdapters.GlyphTypesTableAdapter glyphTypesTableAdapter;
         private System.Windows.Forms.Button buttonBuildSvg;
+        private System.Windows.Forms.Button buttonViewBrailleSchema;
     }
 }
 
